@@ -1,7 +1,23 @@
+import PortableText from '../PortableText'
+
 function Articles({article}){
+	const { 
+		_id,
+		descriptionRaw, 
+		episode,
+		mainImage,
+		publicationDate,
+		season,
+		slideshow,
+		textBelowMainImageRaw,
+		titleRaw, 
+	} = article 
 	console.log(article)	
 	return(
-		<div> key </div>
+		<article key={_id} className='articleBody'> 
+			<PortableText textBlock={titleRaw}/>
+			<PortableText textBlock={descriptionRaw}/>
+		</article>
 	)
 }
 
