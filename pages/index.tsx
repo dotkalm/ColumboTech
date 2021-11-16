@@ -2,8 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-
-const Home: NextPage = () => {
+import { postRequest } from '../actions/request'
+import { queryAllArticles } from '../graphql/queries'
+function Home(props):NextPage{
+	console.log(props)
   return (
     <div className={styles.container}>
       <Head>
@@ -22,3 +24,11 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export async function getStaticProps(){
+	const url = process.env.GRAPHQL_API
+	const response = await postRequest(url, queryAllArticles)
+	return { 
+		props: response?.data
+	}
+}
