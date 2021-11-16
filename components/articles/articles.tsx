@@ -2,11 +2,12 @@ import Article from '../article'
 
 function Articles({allArticle}){
 
-	const mapArticles = allArticle.map(article => <Article article={article}/>)
-	
-	return(
-		<> {mapArticles} </>
-	)
+	return allArticle.map((article, index) => (
+		<Article 
+			article={article} 
+			key={index}
+		/>
+	))
 }
 
 export default Articles

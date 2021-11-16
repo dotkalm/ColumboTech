@@ -1,6 +1,7 @@
+import Image from 'next/image'
 import PortableText from '../PortableText'
 
-function Articles({article}){
+function Article({article}){
 	const { 
 		_id,
 		descriptionRaw, 
@@ -12,13 +13,20 @@ function Articles({article}){
 		textBelowMainImageRaw,
 		titleRaw, 
 	} = article 
-	console.log(article)	
 	return(
 		<article key={_id} className='articleBody'> 
-			<PortableText textBlock={titleRaw}/>
-			<PortableText textBlock={descriptionRaw}/>
+			<PortableText 
+				classname='title'
+				key={`${_id}title`}
+				textBlock={titleRaw} 
+			/>
+			<PortableText 
+				classname='description'
+				key={`${_id}description`}
+				textBlock={descriptionRaw} 
+			/>
 		</article>
 	)
 }
 
-export default Articles
+export default Article
