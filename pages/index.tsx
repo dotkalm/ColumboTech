@@ -2,10 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Articles from '../components/Articles'
 import { postRequest } from '../actions/request'
 import { queryAllArticles } from '../graphql/queries'
-function Home(props):NextPage{
-	console.log(props)
+function Home({allArticle}):NextPage{
   return (
     <div className={styles.container}>
       <Head>
@@ -16,6 +16,7 @@ function Home(props):NextPage{
 
       <main className={styles.main}>
         <h1 className={styles.title}>One More Thing</h1>
+				<Articles allArticle={allArticle}/>
       </main>
 
       <footer className={styles.footer}>a Columbo tech blog</footer>
