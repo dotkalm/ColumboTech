@@ -10,6 +10,17 @@ export const queryAllArticles = `{
         hotspot{
           x
           y
+          width
+          height
+        }
+        asset{
+          originalFilename
+          url
+          source{
+            id
+            name
+            _key
+          }
         }
         crop{
           top

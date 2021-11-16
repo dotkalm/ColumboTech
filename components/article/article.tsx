@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import PortableText from '../PortableText'
+import { makeImage } from '../../actions/sanity/makeImage'
 
 function Article({article}){
 	const { 
@@ -13,6 +14,8 @@ function Article({article}){
 		textBelowMainImageRaw,
 		titleRaw, 
 	} = article 
+	console.log(mainImage.asset, slideshow)
+	//const url = makeImage(mainImage.asset, false, [ 500, 500])
 	return(
 		<article key={_id} className='articleBody'> 
 			<PortableText 
