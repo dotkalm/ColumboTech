@@ -15,7 +15,7 @@ function Home({allArticle}):NextPage{
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>One More Thing</h1>
+        <h1 className={styles.title}>Columbo Tech Blog</h1>
 				<Articles allArticle={allArticle}/>
       </main>
 

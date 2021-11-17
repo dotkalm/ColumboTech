@@ -1,4 +1,3 @@
-
 export async function postRequest(url, body){
 	try{
 		const json = JSON.stringify({query: body})

@@ -1,0 +1,12 @@
+.entry{
+	grid-column: 1 / span 2;
+}
+.slideshow{
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+}
+@media (max-width: 650px){
+	.slideshow{
+		display: block;
+	}
+}
