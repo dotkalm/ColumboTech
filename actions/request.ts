@@ -1,6 +1,9 @@
-export async function postRequest(url, body){
+export async function postRequest(url, body, variables){
 	try{
-		const json = JSON.stringify({query: body})
+		let json = JSON.stringify({query: body})
+		if(variables){
+			json = JSON.stringify({query: body, variables})
+		}
 		const f = await fetch(url, {
 			method: 'POST',
 			headers: {

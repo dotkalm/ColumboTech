@@ -1,0 +1,30 @@
+.link{
+	cursor:pointer;
+}
+.Episode{
+	margin: 0 5vmin;
+}
+.Episode h2{
+	font-size: 4vmin;
+	letter-spacing: 0.3vmin;
+	text-align: center;
+}
+.Episode h3{
+	font-size: 3vmin;
+	letter-spacing: 0.3vmin;
+	text-align: center;
+}
+.Description{
+	line-height: 2em;
+	font-size: 2vmin;
+	letter-spacing: 0.3vmin;
+	display: grid;
+	grid-template-columns: repeat(1, 80%);
+	justify-content: space-around;
+	justify-items: stretch;
+	align-items: center;
+	align-content: center;
+}
+.Description p:first-of-type::first-letter{
+	font-size: 5vmin;
+}

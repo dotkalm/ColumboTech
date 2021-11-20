@@ -1,9 +1,13 @@
 .entry{
-	grid-column: 1 / span 2;
+	grid-column: 1 ;
 }
 .slideshow{
 	display: grid;
-	grid-template-columns: repeat(2, 50%);
+	grid-template-columns: repeat(1, 80%);
+	justify-content: space-around;
+	justify-items: stretch;
+	align-items: center;
+	align-content: center;
 }
 @media (max-width: 650px){
 	.slideshow{

@@ -1,99 +1,113 @@
-export const queryAllArticles = `{
-	allArticle{
+export const articleFields = `
+	_id
+	_type
+	titleRaw
+	mainImage{
 		_id
-		_type
-		titleRaw
-		mainImage{
-			_id
-			_rev
-			_key
-			title
-			asset{
-				crop{
-					top
-					bottom
-					left
-					right
-					_type
-				}
-				hotspot{
-					x
-					y
-					height
-					width
-					_type
-				}
-				_key
-				asset{
-					path
-					originalFilename
-					altText
-					label
-					source{
-						id
-						url
-						_key
-						name
-					}
-					url
-					metadata{
-						dimensions{
-							aspectRatio
-							width
-							height
-						}
-					}
-				}
+		_rev
+		_key
+		title
+		asset{
+			crop{
+				top
+				bottom
+				left
+				right
+				_type
 			}
-		}
-		textBelowMainImageRaw
-		descriptionRaw
-		publicationDate
-		season
-		episode
-		order
-		slideshow{
-			_id
-			_rev
+			hotspot{
+				x
+				y
+				height
+				width
+				_type
+			}
 			_key
-			title
 			asset{
-				crop{
-					top
-					bottom
-					left
-					right
-					_type
-				}
-				hotspot{
-					x
-					y
-					height
-					width
-					_type
-				}
-				_key
-				asset{
-					path
-					originalFilename
-					altText
-					label
-					source{
-						id
-						url
-						_key
-						name
-					}
+				path
+				originalFilename
+				altText
+				label
+				source{
+					id
 					url
-					metadata{
-						dimensions{
-							aspectRatio
-							width
-							height
-						}
+					_key
+					name
+				}
+				url
+				metadata{
+					dimensions{
+						aspectRatio
+						width
+						height
 					}
 				}
 			}
 		}
 	}
+	textBelowMainImageRaw
+	descriptionRaw
+	publicationDate
+	season
+	episode
+	order
+	slideshow{
+		_id
+		_rev
+		_key
+		title
+		asset{
+			crop{
+				top
+				bottom
+				left
+				right
+				_type
+			}
+			hotspot{
+				x
+				y
+				height
+				width
+				_type
+			}
+			_key
+			asset{
+				path
+				originalFilename
+				altText
+				label
+				source{
+					id
+					url
+					_key
+					name
+				}
+				url
+				metadata{
+					dimensions{
+						aspectRatio
+						width
+						height
+					}
+				}
+			}
+		}
+	}
+`
+export const queryAllArticlesEpisodeArticles = `{
+	allArticle{
+		_id
+		_type
+		titleRaw
+		publicationDate
+		season
+		episode
+	}
 }`
+export const queryPerArticle = `query getArticle($season: Float, $episode: Float){
+	allArticle(where: { season: { eq: $season }, episode: { eq: $episode } }) {
+		${articleFields} 
+	}
+}`
+export const queryAllArticles = `{ allArticle{ ${articleFields} } }`

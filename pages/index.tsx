@@ -1,11 +1,10 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Articles from '../components/Articles'
 import { postRequest } from '../actions/request'
 import { queryAllArticles } from '../graphql/queries'
-function Home({allArticle}):NextPage{
+
+function Home({allArticle}){
   return (
     <div className={styles.container}>
       <Head>
