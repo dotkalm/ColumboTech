@@ -1,6 +1,6 @@
 import * as TextBlock from "@sanity/block-content-to-react";
-
-export default function PortableText({ textBlock, classname='' }){
-		return <TextBlock className={classname} blocks={textBlock}/>
+import { TextBlocksType } from '../../types/TextBlockType'
+export default function PortableText({ textBlock, classname='' }: TextBlocksType){
+	return <TextBlock className={classname} blocks={textBlock}/>
 }
 

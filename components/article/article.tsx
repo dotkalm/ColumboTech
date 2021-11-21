@@ -2,8 +2,10 @@ import Link from 'next/link'
 import PortableText from '../PortableText'
 import styles from "./Article.module.css"
 import ImageComponent from "../ImageComponent"
+import { ArticlePropsType } from '../../types/Article'
 
-function Article({article}){
+
+function Article({article}: ArticlePropsType){
 	const { 
 		_id,
 		descriptionRaw, 

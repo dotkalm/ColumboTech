@@ -1,6 +1,6 @@
 import Article from '../Article'
-
-function Articles({allArticle}){
+import { ArticleTypes } from '../../types/Article'
+function Articles({allArticle}: ArticleTypes){
 
 	return allArticle.map((article, index) => (
 		<Article 

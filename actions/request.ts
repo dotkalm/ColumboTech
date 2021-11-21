@@ -1,4 +1,4 @@
-export async function postRequest(url, body, variables){
+export async function postRequest(url: string, body: string, variables: object){
 	try{
 		let json = JSON.stringify({query: body})
 		if(variables){

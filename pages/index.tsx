@@ -27,8 +27,14 @@ export default Home
 
 export async function getStaticProps(){
 	const url = process.env.GRAPHQL_API
-	const response = await postRequest(url, queryAllArticles)
+  if(!url){
+    return { 
+      props: [] 
+    }
+  }
+	const response = await postRequest(url, queryAllArticles, {})
+  const allArticle = response?.data
 	return { 
-		props: response?.data
+		props:{allArticle} 
 	}
 }

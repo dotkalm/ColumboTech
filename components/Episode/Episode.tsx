@@ -3,7 +3,9 @@ import PortableText from '../PortableText'
 import styles from "./Episode.module.css"
 import ImageComponent from "../ImageComponent"
 import Slideshow from '../Slideshow'
-function Episode({article}){
+import { ArticlePropsType } from '../../types/Article'
+
+function Episode({article}: ArticlePropsType){
 	const { 
 		_id,
 		descriptionRaw, 
