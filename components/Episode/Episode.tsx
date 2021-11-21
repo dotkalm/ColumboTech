@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import PortableText from '../PortableText'
 import styles from "./Episode.module.css"
 import ImageComponent from "../ImageComponent"
@@ -25,7 +24,7 @@ function Episode({article}: ArticlePropsType){
 					textBlock={titleRaw} 
 				/>
 			</h2>
-			<h3> season {season} episode {episode} </h3>
+			<h3> Season {season}, Episode {episode} </h3>
 			<div className={styles.Description}>
 				<PortableText 
 					key={`${_id}description`}
