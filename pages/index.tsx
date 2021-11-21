@@ -3,8 +3,9 @@ import styles from '../styles/Home.module.css'
 import Articles from '../components/Articles'
 import { postRequest } from '../actions/request'
 import { queryAllArticles } from '../graphql/queries'
+import { ArticlesPropsType } from '../types/Article'
 
-function Home({allArticle}){
+function Home({allArticle}: ArticlesPropsType){
   return (
     <div className={styles.container}>
       <Head>

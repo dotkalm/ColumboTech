@@ -1,8 +1,9 @@
 import styles from "./Slideshow.module.css"
 import PortableText from '../PortableText'
 import ImageComponent from "../ImageComponent"
+import { SlideShowPropsType } from "../../types/Slideshow"
 
-function Slideshow({ slideshow }){
+function Slideshow({ slideshow }: SlideShowPropsType){
 	const mapSlideshow = slideshow.map(({ _key, asset, title }, index) => {
 		const even = slideshow.length % 2 === 0
 		const lastOfOdd = index === slideshow.length -1 && !even

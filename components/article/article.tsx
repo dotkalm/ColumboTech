@@ -37,7 +37,6 @@ function Article({article}: ArticlePropsType){
 					/>
 					<div className={styles.caption}>
 						<PortableText 
-							classname='description'
 							key={`${_id}description`}
 							textBlock={textBelowMainImageRaw} 
 						/>

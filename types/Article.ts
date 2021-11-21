@@ -26,6 +26,7 @@ export type ArticleType = {
 	order: number
 	slideshow: [ImagesType]
 };
+export type ArticlesPropsType = { allArticle: ArticleType[]}
 export type ArticlePropsType = { article: ArticleType}
 export type ArticleTypes = {
 	allArticle: ArticleType[]
