@@ -34,7 +34,7 @@ export async function getStaticProps(){
     }
   }
 	const response = await postRequest(url, queryAllArticles, {})
-  const allArticle = response?.data
+  const allArticle = response?.data?.allArticle
 	return { 
 		props:{allArticle} 
 	}
