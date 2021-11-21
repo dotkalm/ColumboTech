@@ -1,2 +1,2 @@
-import Articles from './articles'
+import Articles from './Articles'
 export default Articles
