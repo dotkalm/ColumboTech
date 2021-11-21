@@ -12,26 +12,22 @@ function Episodes({article}:{article: ArticleType}){
 	const { 
 		episode, 
 		season, 
-		titleRaw : [ { children: [{ text: titleText }]}] 
+		titleRaw
 	} = article
+	const episodeTitle = jsonParse(titleRaw, `season ${season}, episode ${episode}`)
 	return(
 		<>
       <Head>
-        <title>One More Thing | {titleText}</title>
-        <meta name="description" content={`One More Thing, Columbo, Tech Blog, ${titleText}, season ${season}, episode ${episode}`} />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 			<main className={styles.main}>
 				<header>
 					<Link href='/'>
-						<a>
-							Back		
-						</a>
+						<a>ONE M🕵️RE THING</a>
 					</Link>
 				</header>
 				<Episode article={article}/>
 				<footer className={styles.footer}>
-					Columbo Tech Blog
+					a Columbo Tech Blog
 				</footer>
 			</main>
 		</>
@@ -46,7 +42,9 @@ export async function getStaticProps({ params: { episodes } }: StaticEpisodesPat
 	}
 	const { data : { allArticle }} = response
 	const [ article ] = allArticle
-	return { props: { option: true, article }}
+	const { titleRaw } = article
+	console.log(titleRaw, `<---48`)
+	return { props: { option: true, article, titleRaw }}
 }
 export async function getStaticPaths(){
 	const response = await postRequest(url, queryAllArticlesEpisodeArticles, {})
@@ -56,3 +54,20 @@ export async function getStaticPaths(){
 	return { fallback: false, paths }
 }
 export default Episodes
+
+function jsonParse(jsonString:string, fallback: string):string{
+	try{
+		let title = fallback 
+		function reviver(key, value){
+			if(key === 'text'){
+				title = value
+			}
+			return value
+		}
+		const jsonObject = JSON.stringify(jsonString, reviver)
+		return title
+	}catch(err){
+		console.log(err)
+		return fallback 
+	}
+}
