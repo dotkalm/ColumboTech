@@ -30,12 +30,12 @@ export async function getStaticProps(){
 	const url = process.env.GRAPHQL_API
   if(!url){
     return { 
-      props: [] 
+			props: {allArticle: [], fallback: "blocking" }
     }
   }
 	const response = await postRequest(url, queryAllArticles, {})
   const allArticle = response?.data?.allArticle
 	return { 
-		props:{allArticle} 
+		props:{allArticle, fallback:false } 
 	}
 }

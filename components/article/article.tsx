@@ -5,7 +5,7 @@ import ImageComponent from "../ImageComponent"
 import { ArticlePropsType } from '../../types/Article'
 
 
-function Article({article}: ArticlePropsType){
+export default function Article({article}: ArticlePropsType){
 	const { 
 		_id,
 		descriptionRaw, 
@@ -46,5 +46,3 @@ function Article({article}: ArticlePropsType){
 		</article>
 	)
 }
-
-export default Article
