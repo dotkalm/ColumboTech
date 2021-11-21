@@ -1,16 +1,16 @@
 import imageUrlBuilder from '@sanity/image-url'
+import { SanityImageSource } from '@sanity/image-url/lib/types/types'
+
 import client from './client'
 
 const builder = imageUrlBuilder(client)
 
-function urlFor(source) {
+function urlFor(source: SanityImageSource) {
   return builder.image(source)
 }
 
-export default function makeImage(asset, blurred, [ width, height ]){
-	const crop = asset?.crop
-	const dims = asset?.asset?.metadata?.dimensions
-	const hotspot = asset?.hotspot
+export default function makeImage(asset: SanityImageSource, blurred: boolean, dimsArray: [number, number]){
+	const [ width, height ] = dimsArray
 	const hotspotX = asset?.hotspot?.x
 	const hotspotY = asset?.hotspot?.y
 	if(blurred){
