@@ -4,6 +4,7 @@ import Episode from '../components/Episode'
 import styles from '../styles/Episode.module.css'
 import { ArticleType, StaticEpisodesPaths, AllArticlePaths } from '../types/Article'
 import { postRequest } from '../actions/request'
+import { getSearchKey } from '../actions/jsonParsers'
 import { queryAllArticlesEpisodeArticles, queryPerArticle } from '../graphql/queries'
 
 const url = process.env.GRAPHQL_API || ''
@@ -14,7 +15,7 @@ function Episodes({article}:{article: ArticleType}){
 		season, 
 		titleRaw
 	} = article
-	const episodeTitle = jsonParse(titleRaw, `season ${season}, episode ${episode}`)
+	const episodeTitle = getSearchKey(titleRaw, 'title', `season ${season}, episode ${episode}`)
 	return(
 		<>
       <Head>
@@ -55,19 +56,3 @@ export async function getStaticPaths(){
 }
 export default Episodes
 
-function jsonParse(jsonString:string, fallback: string):string{
-	try{
-		let title = fallback 
-		function reviver(key, value){
-			if(key === 'text'){
-				title = value
-			}
-			return value
-		}
-		const jsonObject = JSON.stringify(jsonString, reviver)
-		return title
-	}catch(err){
-		console.log(err)
-		return fallback 
-	}
-}
