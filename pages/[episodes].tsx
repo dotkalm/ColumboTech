@@ -23,7 +23,7 @@ function Episodes({article}:{article: ArticleType}){
 			<main className={styles.main}>
 				<header>
 					<Link href='/'>
-						<a>ONE M🕵RE THING</a>
+						<a>ONE M🕵🏼‍♂️RE THING</a>
 					</Link>
 				</header>
 				<Episode article={article}/>

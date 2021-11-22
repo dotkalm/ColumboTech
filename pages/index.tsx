@@ -15,7 +15,7 @@ function Home({allArticle}: ArticlesPropsType){
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>ONE M🕵️RE THING</h1>
+        <h1 className={styles.title}>ONE M🕵🏼‍♂️RE THING</h1>
 				<Articles allArticle={allArticle}/>
       </main>
 
