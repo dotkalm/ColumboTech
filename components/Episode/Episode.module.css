@@ -28,3 +28,34 @@
 .Description p:first-of-type::first-letter{
 	font-size: 5vmin;
 }
+@media screen and (max-width: 800px){
+	.Episode{
+		margin: 0 5vmin;
+	}
+	.Episode h2{
+		font-size: 8vmin;
+		letter-spacing: 0.3vmin;
+		text-align: center;
+	}
+	.Episode h3{
+		font-size: 6vmin;
+		letter-spacing: 0.3vmin;
+		text-align: center;
+		font-weight: 300;
+	}
+	.Description{
+		line-height: 1.5em;
+		font-size: 4vmin;
+		font-weight: 200;
+		letter-spacing: 0.3vmin;
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		justify-content: space-around;
+		justify-items: stretch;
+		align-items: center;
+		align-content: center;
+	}
+	.Description p:first-of-type::first-letter{
+		font-size: 12vmin;
+	}
+}

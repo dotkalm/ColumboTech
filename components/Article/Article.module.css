@@ -47,3 +47,16 @@
 .link{
 	cursor:pointer;
 }
+@media screen and (max-width: 500px){
+	.Article{
+		width:auto;
+		height:auto;
+		margin: 0 .5vmin;
+	}
+	.Article h2{
+		letter-spacing: .6vmin;
+		color: lightgrey;
+		font-size: 10vmin;
+		font-weight: 400;
+	}
+}
