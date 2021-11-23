@@ -44,7 +44,6 @@ export async function getStaticProps({ params: { episodes } }: StaticEpisodesPat
 	const { data : { allArticle }} = response
 	const [ article ] = allArticle
 	const { titleRaw } = article
-	console.log(titleRaw, `<---48`)
 	return { props: { option: true, article, titleRaw }}
 }
 export async function getStaticPaths(){
