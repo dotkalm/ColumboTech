@@ -1,8 +1,3 @@
-function assert(condition: boolean): asserts condition {
-  if (!condition) {
-    throw new Error('Assertion failed');
-  }
-}
 function isType<T>(value: T | undefined): value is T {
   return value !== undefined;
 }
@@ -18,7 +13,6 @@ export function getSearchKey<T>(jsonString:string, searchKey: string, fallback: 
 		const jsonObject = JSON.stringify(jsonString, reviver)
 		return title
 	}catch(err){
-		console.log(err)
 		return fallback 
 	}
 }
