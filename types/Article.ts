@@ -20,6 +20,7 @@ export type ArticleType = {
 	mainImage: ImagesType
 	textBelowMainImageRaw: string
 	descriptionRaw: string 
+	index: number
 	publicationDate: string
 	season: number
 	episode: number

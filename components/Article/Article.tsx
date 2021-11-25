@@ -11,6 +11,7 @@ export default function Article({article}: ArticlePropsType){
 		descriptionRaw, 
 		episode,
 		mainImage,
+		index,
 		publicationDate,
 		season,
 		slideshow,
@@ -39,9 +40,9 @@ export default function Article({article}: ArticlePropsType){
 					<div className={styles.images}>
 						<ImageComponent 
 							alt={mainImage.title} 
-							blurred={false}
 							data={mainImage.asset}
 							height={500}
+							priority={index < 5}
 							width={800}
 						/>
 					</div>

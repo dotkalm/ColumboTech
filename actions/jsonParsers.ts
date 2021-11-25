@@ -1,8 +1,16 @@
-export function getSearchKey(jsonString:string, searchKey: string, fallback: string):string{
+function assert(condition: boolean): asserts condition {
+  if (!condition) {
+    throw new Error('Assertion failed');
+  }
+}
+function isType<T>(value: T | undefined): value is T {
+  return value !== undefined;
+}
+export function getSearchKey<T>(jsonString:string, searchKey: string, fallback: T): T{
 	try{
-		let title = fallback 
-		const reviver =	(key: string, value: unknown) => {
-			if(key === searchKey && typeof value === 'string'){
+		let title: T = fallback 
+		const reviver =	(key: string, value: any) => {
+			if(key === searchKey && isType<T>(value)){
 				title = value
 			}
 			return value
