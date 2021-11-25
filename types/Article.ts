@@ -27,6 +27,11 @@ export type ArticleType = {
 	slideshow: [ImagesType]
 };
 export type ArticlesPropsType = { allArticle: ArticleType[]}
+export type ArticleQuery = { 
+	data: { 
+		allArticle : ArticlePropsType 
+	} 
+}
 export type ArticlePropsType = { article: ArticleType}
 export type ArticleTypes = {
 	allArticle: ArticleType[]

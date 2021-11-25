@@ -1,4 +1,5 @@
-export const articleFields = `
+export const ARTICLE_FIELDS = `
+fragment ArticleFragment on Article{
 	_id
 	_type
 	titleRaw
@@ -94,20 +95,26 @@ export const articleFields = `
 			}
 		}
 	}
+}`
+export const EPISODE_PATHS = `{
+	allArticle{ 
+		episode 
+		season 
+	} 
+}`
+export const QUERY_PER_ARTICLE = `query 
+	getArticle($season: Float, $episode: Float){
+		allArticle(where: { season: { eq: $season }, episode: { eq: $episode } }) {
+			...ArticleFragment
+		}
+	}
+	${ARTICLE_FIELDS} 
 `
-export const queryAllArticlesEpisodeArticles = `{
-	allArticle{
-		_id
-		_type
-		titleRaw
-		publicationDate
-		season
-		episode
+export const QUERY_ALL_ARTICLES = `
+	{ 
+		allArticle{
+			...ArticleFragment
+		} 
 	}
-}`
-export const queryPerArticle = `query getArticle($season: Float, $episode: Float){
-	allArticle(where: { season: { eq: $season }, episode: { eq: $episode } }) {
-		${articleFields} 
-	}
-}`
-export const queryAllArticles = `{ allArticle{ ${articleFields} } }`
+	${ARTICLE_FIELDS}
+`

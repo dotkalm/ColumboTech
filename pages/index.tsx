@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Articles from '../components/Articles'
 import { postRequest } from '../actions/request'
-import { queryAllArticles } from '../graphql/queries'
+import { QUERY_ALL_ARTICLES } from '../graphql/queries'
 import { ArticlesPropsType } from '../types/Article'
 
 function Home({allArticle}: ArticlesPropsType){
@@ -33,8 +33,9 @@ export async function getStaticProps(){
 			props: {allArticle: [], fallback: "blocking" }
     }
   }
-	const response = await postRequest(url, queryAllArticles, {})
+	const response = await postRequest(url, QUERY_ALL_ARTICLES, {})
   const allArticle = response?.data?.allArticle
+	console.log(response)
 	return { 
 		props:{allArticle, fallback:false } 
 	}

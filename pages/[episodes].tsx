@@ -5,7 +5,7 @@ import styles from '../styles/Episode.module.css'
 import { ArticleType, StaticEpisodesPaths, AllArticlePaths } from '../types/Article'
 import { postRequest } from '../actions/request'
 import { getSearchKey } from '../actions/jsonParsers'
-import { queryAllArticlesEpisodeArticles, queryPerArticle } from '../graphql/queries'
+import { EPISODE_PATHS, QUERY_PER_ARTICLE } from '../graphql/queries'
 
 const url = process.env.GRAPHQL_API || ''
 
@@ -37,7 +37,7 @@ function Episodes({article}:{article: ArticleType}){
 export async function getStaticProps({ params: { episodes } }: StaticEpisodesPaths){
 	const [, season, , episode ] = episodes.split('-')
 	const seasonObject = { season: Number(season), episode: Number(episode) } 
-	const response = await postRequest(url, queryPerArticle, seasonObject)
+	const response = await postRequest(url, QUERY_PER_ARTICLE, seasonObject)
 	if(response.errors){
 		return { props: { option: true }}
 	}
@@ -47,7 +47,7 @@ export async function getStaticProps({ params: { episodes } }: StaticEpisodesPat
 	return { props: { option: true, article, titleRaw }}
 }
 export async function getStaticPaths(){
-	const response = await postRequest(url, queryAllArticlesEpisodeArticles, {})
+	const response = await postRequest(url, EPISODE_PATHS, {})
 	const paths = response?.data?.allArticle.map(({season, episode, _id }: AllArticlePaths) => ({
 		params: { episodes: `season-${season}-episode-${episode}`, id: _id },
 	}))

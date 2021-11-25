@@ -24,7 +24,12 @@
 .Article{
 	width:auto;
 	height:auto;
-	margin: 0 5vmin;
+	align-content: space-between;
+	align-items: center;
+	display: grid;
+	grid-template-columns: repeat(1,80%);
+	justify-content: space-evenly;
+	justify-items: stretch;
 }
 .Article h2{
 	letter-spacing: .6vmin;
@@ -47,16 +52,13 @@
 .link{
 	cursor:pointer;
 }
-@media screen and (max-width: 500px){
+@media screen and (max-width: 600px){
 	.Article{
-		width:auto;
-		height:auto;
-		margin: 0 .5vmin;
+		grid-template-columns: repeat(1,100%);
 	}
-	.Article h2{
-		letter-spacing: .6vmin;
-		color: lightgrey;
-		font-size: 10vmin;
-		font-weight: 400;
+}
+@media screen and (min-width: 1200px){
+	.Article{
+		grid-template-columns: repeat(1,40%);
 	}
 }

@@ -22,19 +22,33 @@ export default function Article({article}: ArticlePropsType){
 			<Link href={`/season-${season}-episode-${episode}`}>
 				<a>
 					<h2 className={styles.title}>
-						<PortableText 
-							key={`${_id}title`}
-							textBlock={titleRaw} 
-						/>
-					</h2>
-					<h3> season {season} episode {episode} </h3>
-					<ImageComponent 
-						alt={mainImage.title} 
-						blurred={false}
-						data={mainImage.asset}
-						height={500}
-						width={800}
+					<PortableText 
+					key={`${_id}title`}
+					textBlock={titleRaw} 
 					/>
+					</h2>
+				</a>
+			</Link>
+			<Link href={`/season-${season}-episode-${episode}`}>
+				<a>
+					<h3> season {season} episode {episode} </h3>
+				</a>
+			</Link>
+			<Link href={`/season-${season}-episode-${episode}`}>
+				<a>
+					<div className={styles.images}>
+						<ImageComponent 
+							alt={mainImage.title} 
+							blurred={false}
+							data={mainImage.asset}
+							height={500}
+							width={800}
+						/>
+					</div>
+				</a>
+			</Link>
+			<Link href={`/season-${season}-episode-${episode}`}>
+				<a>
 					<div className={styles.caption}>
 						<PortableText 
 							key={`${_id}description`}
@@ -43,6 +57,7 @@ export default function Article({article}: ArticlePropsType){
 					</div>
 				</a>
 			</Link>
+
 		</article>
 	)
 }

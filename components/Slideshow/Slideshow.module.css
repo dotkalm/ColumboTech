@@ -14,3 +14,9 @@
 		display: block;
 	}
 }
+@media (min-width: 650px){
+	.slideshow{
+		display: grid;
+		grid-template-columns: repeat(1, 60%);
+	}
+}

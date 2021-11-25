@@ -10,8 +10,48 @@ body {
 		background-color:black;
 		color: lightgrey;
 }
-
+p{
+	line-height: 1.5em;
+	font-size: 3vmin;
+	font-weight: 200;
+	letter-spacing: 0.3vmin;
+}
+p::first-of-type::first-letter{
+	font-size: 10vmin;
+}
 a {
   color: inherit;
   text-decoration: none;
+}
+h2{
+	font-size: 6vmin;
+	letter-spacing: 0.3vmin;
+	text-align: center;
+}
+h3{
+	font-size: 3vmin;
+	letter-spacing: 0.3vmin;
+	text-align: center;
+	font-weight: 300;
+}
+@media screen and (max-width: 800px){
+	h2{
+		font-size: 8vmin;
+		letter-spacing: 0.3vmin;
+		text-align: center;
+	}
+	h3{
+		font-size: 6vmin;
+		letter-spacing: 0.3vmin;
+		text-align: center;
+	}
+	p{
+		line-height: 1.5em;
+		font-size: 4vmin;
+		font-weight: 200;
+		letter-spacing: 0.3vmin;
+	}
+	p::first-of-type::first-letter{
+		font-size: 12vmin;
+	}
 }

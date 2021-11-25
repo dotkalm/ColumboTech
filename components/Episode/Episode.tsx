@@ -1,6 +1,5 @@
 import PortableText from '../PortableText'
 import styles from "./Episode.module.css"
-import ImageComponent from "../ImageComponent"
 import Slideshow from '../Slideshow'
 import { ArticlePropsType } from '../../types/Article'
 

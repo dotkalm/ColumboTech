@@ -2,8 +2,8 @@ import Image from 'next/image'
 import makeImage from '../../actions/sanity/makeImage'
 import { ImageProps } from '../../types/Image'
 
-function ImageComponent({alt, blurred, data, width, height}: ImageProps){
-	const url = makeImage(data, blurred, [ width, height ])
+function ImageComponent({alt, data, width, height, priority}: ImageProps){
+	const url = makeImage(data, false, [ width, height ])
 	return(
 		<Image
 			src={url}
@@ -11,6 +11,9 @@ function ImageComponent({alt, blurred, data, width, height}: ImageProps){
 			layout="responsive"
 			height={height} 
 			width={width}
+			priority={priority}
+			placeholder="blur"
+			blurDataURL={makeImage(data, true, [ 60, 100 ])}
 		/>
 	)
 }
