@@ -10,7 +10,7 @@ export function getSearchKey<T>(jsonString:string, searchKey: string, fallback: 
 			}
 			return value
 		}
-		const jsonObject = JSON.stringify(jsonString, reviver)
+		const jsonObject = JSON.parse(jsonString, reviver)
 		return title
 	}catch(err){
 		return fallback 
